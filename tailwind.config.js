@@ -39,7 +39,8 @@ module.exports = {
         dotin:"#005B31",
         button:"#008f51",
         buttonHover:"#005d34",
-        dropdown:"#2a2a2a"
+        dropdown:"#2a2a2a",
+        gray:"#f6f6f6"
       },
     },
   },

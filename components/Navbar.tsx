@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <div className="w-full shadow-navbarShadow h-20  sticky top-0 z-50 bg-white px-4">
       <div className="max-w-container h-full mx-auto py-1 font-titleFont flex items-center justify-between">
-        <Link href="/accountOperation/login" target="_blank">
+        <Link href="/accountOperation/login">
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

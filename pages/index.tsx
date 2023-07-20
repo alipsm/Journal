@@ -19,7 +19,7 @@ const Home = () => {
     await console.log(container);
   }, []);
   return (
-    <div id="particle-background" className="w-full h-4/5">
+    <div id="particle-background" className="w-full h-4/5 overflow-hidden">
       <Head>
         <title>Journal|home</title>
       </Head>
@@ -33,9 +33,13 @@ const Home = () => {
         height="100vh"
         width="100vw"
       />
+      <div className="absolute top-0 left-0 w-screen h-screen bg-[#ffffffe1] z-10">
+
+      </div>
+
 
       <div className="relative px-[5%] w-full h-full flex flex-row-reverse z-20 justify-evenly items-center">
-        <div className="flex h-full w-1/2 text-[#fff] z-10 flex-col justify-center items-end">
+        <div className="flex h-full w-1/2 text-dropdown z-10 flex-col justify-center items-end">
           <h1 className=" dir_rtl text-6xl">
             فقط چند خط <span className="animate-ping delay_100">.</span>
             <span className="animate-ping delay_200">.</span>
