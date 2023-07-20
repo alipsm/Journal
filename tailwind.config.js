@@ -37,6 +37,8 @@ module.exports = {
         textDark: "#8892b0",
         hoverColor: "rgba(100, 255, 218,0.1)",
         dotin:"#005B31",
+        button:"#008f51",
+        buttonHover:"#005d34",
         dropdown:"#2a2a2a"
       },
     },

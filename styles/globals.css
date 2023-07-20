@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,6 +28,20 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-*{
+* {
   font-family: IranYekan;
+}
+
+.dir_rtl {
+  direction: rtl;
+}
+
+.delay_100 {
+  animation-delay: 100ms;
+}
+.delay_200 {
+  animation-delay: 200ms;
+}
+.delay_300 {
+  animation-delay: 300ms;
 }

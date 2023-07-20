@@ -3,10 +3,11 @@ import { useCallback } from "react";
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import ParticlesConfig from "../config/particle-config";
-import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { dotin_nav_logo } from "@/public";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Home = () => {
   const particlesInit = useCallback(async (engine: any) => {
@@ -34,11 +35,44 @@ const Home = () => {
       />
 
       <div className="relative px-[5%] w-full h-full flex flex-row-reverse z-20 justify-evenly items-center">
-        <div className="flex h-full w-1/2 text-[#fff] z-10 justify-end items-center">
-          [content]
+        <div className="flex h-full w-1/2 text-[#fff] z-10 flex-col justify-center items-end">
+          <h1 className=" dir_rtl text-6xl">
+            فقط چند خط <span className="animate-ping delay_100">.</span>
+            <span className="animate-ping delay_200">.</span>
+            <span className="animate-ping delay_300">.</span>
+          </h1>
+          <br />
+          <i>فقط با نوشتن چند خط در روز میتونی معجزه رو احساس کنی</i>
+          <br />
+
+          <div className="">
+          <Link href="/journal-info" target="_blank" className="mr-4">
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="px-4 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
+                چرا ژورنال؟
+              </motion.button>
+            </Link>
+            <Link href="/login" target="_blank" className="ml-4">
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="px-4 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
+                نوشتن
+              </motion.button>
+            </Link>
+
+          </div>
         </div>
         <div className="w-1/2  z-10 flex justify-center items-center">
-          <Image src={dotin_nav_logo} alt="dotin logo"  className=" relative z-20" />
+          <Image
+            src={dotin_nav_logo}
+            alt="dotin logo"
+            className=" relative z-20"
+          />
         </div>
       </div>
     </div>
