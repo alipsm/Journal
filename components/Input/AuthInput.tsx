@@ -31,13 +31,13 @@ export default function AuthInput({
           className={`${classes}  ${
             disable == true && " bg-[#D9D9D9] text-[#FCFCFB]"
           }`}
-          value={value}
+          // value={value}
           dir="auto"
           style={{
             // direction,
             width: `${width}`,
             //@ts-ignore
-            pointerEvents: `${disable}` && "none",
+            pointerEvents: disable && "none",
             borderBottom: disable
               ? " 3px solid rgba(16, 204, 174, 1) !important"
               : chechvalue
