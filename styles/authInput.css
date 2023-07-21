@@ -399,3 +399,22 @@ textarea:disabled+label {
   font-size: 20px;
   text-align: center;
 }
+
+
+
+/* error text */
+.input-wrapper .error_down_input {
+  display: none;
+  position: absolute;
+  right: 6px;
+  top: 45px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #c42b1c;
+  unicode-bidi: plaintext;
+}
+
+.input-wrapper input:focus + .error_down_input {
+  display: none !important;
+  width: 600px !important;
+}

@@ -2,6 +2,7 @@ import Vector from "@/components/accountOperation/Vector";
 import React from "react";
 import AuthInput from "@/components/Input/AuthInput";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function login() {
   return (
@@ -28,9 +29,9 @@ export default function login() {
         </div>
         <div className="flex items-center center flex-col justify-evenly absolute bottom-0 right-0 w-full h-1/6 bg-gray">
           <span className=" text-dropdown opacity-50 text-base">اکانت ندارید؟</span>
-          <button className=" px-10 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
+          <Link href={"register"} className=" px-10 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
             ثبت نام
-          </button>
+          </Link>
         </div>
       </form>
     </div>

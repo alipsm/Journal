@@ -1,32 +1,51 @@
 import React from "react";
 
 export default function AuthInput({
-  textLabelInput = "" as string, //place holder text (moved to top)
-  width = "" as string, // set input width
-  typeInput = "" as string, //set input type
-  disable = false as boolean, //handle disable input (true/false)
-  chechvalue = "" as string, //
-  maxlength = undefined as number | undefined,
-  classes = "" as string,
-  direction = "" as string,
-  wrapperClass = "" as string,
-  value = "" as string,
-  ref = "" as string,
-  inputId = "" as string,
-  placeholder = "" as string,
+  textLabelInput, //place holder text (moved to top)
+  width, // set input width
+  typeInput, //set input type
+  name,
+  disable, //handle disable input (true/false)
+  chechvalue, //
+  maxlength,
+  classes,
+  direction,
+  wrapperClass,
+  value,
+  ref,
+  inputId,
+  placeholder,
+  getInputValue,
+  errorTextId
 }) {
+
+
+//   .input-wrapper .error_down_input {
+//     display: none;
+//     position: absolute;
+//     right: 6px;
+//     top: 45px;
+//     font-size: 10px;
+//     font-weight: 700;
+//     color: #c42b1c;
+//     unicode-bidi: plaintext;
+// }
+
+
+
   return (
     <>
       <div className={`auth-input input-wrapper ${wrapperClass}`}>
-        {/* <span className={`error_down_input ${errorTextId != undefined && errorTextId}`}>اطلاعات نامعتبر</span> */}
+        <span className={`error_down_input hidden absolute right-1 top-11 text-xs text-[#c42b1c] ${errorTextId != undefined ? errorTextId:"hidden"}`}>اطلاعات نامعتبر</span>
         <input
           placeholder={placeholder}
           id={inputId != undefined ? inputId : ""}
           type={typeInput}
           required
           maxLength={maxlength}
-          name={typeInput}
-          // ref={ref}
+          name={name}
+          
+          ref={ref!=undefined?ref:null}
           disabled={disable}
           className={`${classes}  ${
             disable == true && " bg-[#D9D9D9] text-[#FCFCFB]"
@@ -44,6 +63,7 @@ export default function AuthInput({
               ? " 3px solid #cd0a0a"
               : "",
           }}
+          // onChange={e=>getInputValue(e.target.value)}
         />
 
         <label className={disable ? "text-[#fff]" : ""}>{textLabelInput}</label>
