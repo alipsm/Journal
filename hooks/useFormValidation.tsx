@@ -8,7 +8,6 @@ export const useFormValidation = () => {
       if (Object.prototype.hasOwnProperty.call(objFormData, key)) {
         checkedStatusItems.push(key);
         const element: string = `${objFormData[key]}`;
-        debugger;
         const resultValidation =
           key === "confirmPassword"
             ? validation(key, [element, `${objFormData["password"]}`])
@@ -63,7 +62,6 @@ const validation = (
       break;
     case "password":
       CHECK = true;
-      debugger
       const checkLenghtPass = new RegExp("(?=.{6,})"); //check lenght pass
       if (!checkLenghtPass.test(value[0])) {
         CHECK = false;
@@ -72,7 +70,6 @@ const validation = (
       break;
 
     case "confirmPassword":
-      debugger;
       CHECK = value[0] == value[1] ? true : false;
       if (!CHECK) {
         message = "گذرواژه‌‌ها یکی نیستند.";

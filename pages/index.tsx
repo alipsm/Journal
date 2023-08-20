@@ -1,15 +1,18 @@
 import React from "react";
+import Particles from "react-tsparticles";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 import { useCallback } from "react";
 import { loadFull } from "tsparticles";
-import Particles from "react-tsparticles";
-import ParticlesConfig from "../config/particle-config";
-import Head from "next/head";
-import { dotin_nav_logo } from "@/public";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
+
+import ParticlesConfig from "../config/particle-config";
+import { dotin_nav_logo } from "@/public";
+
 
 const Home = () => {
+
   const particlesInit = useCallback(async (engine: any) => {
     console.log(engine);
     await loadFull(engine);
@@ -18,6 +21,7 @@ const Home = () => {
   const particlesLoaded = useCallback(async (container: any) => {
     await console.log(container);
   }, []);
+
   return (
     <div id="particle-background" className="w-full h-4/5 overflow-hidden">
       <Head>
@@ -35,10 +39,7 @@ const Home = () => {
         width="100vw"
       />
       <div className="absolute top-0 left-0 w-screen h-screen bg-[#ffffffe1] z-10">
-
       </div>
-
-
       <div className="relative  w-full h-full flex flex-col-reverse md:flex-row-reverse z-20 justify-evenly items-center lg:px-[5%]">
         <div className="flex md:h-full w-full md:w-1/2 text-dropdown z-10 flex-col justify-center items-center md:items-end">
           <h1 className=" dir_rtl text-2xl md:text-4xl lg:text-6xl">
@@ -54,7 +55,7 @@ const Home = () => {
               <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.2 }}
                 className="px-4 py-2 rounded-lg text-white bg-button text-xs md:text-sm lg:text-[16px] border border-dotin hover:bg-buttonHover duration-300">
                 چرا ژورنال؟
               </motion.button>
@@ -63,20 +64,25 @@ const Home = () => {
               <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.2 }}
                 className="px-4 py-2 rounded-lg text-white bg-button text-xs md:text-sm lg:text-[16px] border border-dotin hover:bg-buttonHover duration-300">
                 نوشتن
               </motion.button>
             </Link>
-
           </div>
         </div>
         <div className="w-1/3  z-10 flex justify-center items-center lg:w-1/2">
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, delay: .3 }}>
           <Image
             src={dotin_nav_logo}
             alt="dotin logo"
             className=" relative z-20"
-          />
+            loading="lazy"
+            />
+            </motion.div>
         </div>
       </div>
     </div>
