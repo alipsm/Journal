@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AuthInput({
+export default function TextInput({
   textLabelInput, //place holder text (moved to top)
   width, // set input width
   typeInput, //set input type
@@ -18,18 +18,6 @@ export default function AuthInput({
   getInputValue,
   errorTextId
 }) {
-
-
-//   .input-wrapper .error_down_input {
-//     display: none;
-//     position: absolute;
-//     right: 6px;
-//     top: 45px;
-//     font-size: 10px;
-//     font-weight: 700;
-//     color: #c42b1c;
-//     unicode-bidi: plaintext;
-// }
 
 
 
@@ -50,7 +38,7 @@ export default function AuthInput({
           className={`${classes}  ${
             disable == true && " bg-[#D9D9D9] text-[#FCFCFB]"
           }`}
-          // value={value}
+          value={value}
           dir="auto"
           style={{
             // direction,
