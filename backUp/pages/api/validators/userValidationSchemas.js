@@ -29,8 +29,7 @@ const loginSchema = [
     .notEmpty()
     .withMessage("فیلد ایمیل خالی است")
     .isEmail()
-    .withMessage("فرمت ایمیل نادرست است"),
-  header("authorization").notEmpty().withMessage("لطفا ReCaptcha را کامل کنید"),
+    .withMessage("فرمت ایمیل نادرست است")
 ];
 
 module.exports = {
