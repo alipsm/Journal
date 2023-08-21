@@ -16,15 +16,27 @@ const registerSchema = [
     .withMessage("فیلد ایمیل خالی است")
     .isEmail()
     .withMessage("فرمت ایمیل نادرست است"),
-    header("authorization")
-    .notEmpty()
-    .withMessage("لطفا ReCaptcha را کامل کنید")
+  header("authorization").notEmpty().withMessage("لطفا ReCaptcha را کامل کنید"),
 ];
 
-module.exports={
-    registerSchema
-}
+const loginSchema = [
+  body("password")
+    .notEmpty()
+    .withMessage("فیلد پسورد خالی است")
+    .isLength({ min: 6, max: 500 })
+    .withMessage("پسورد باید حداقل شامل ۶ حرف باشد"),
+  body("email")
+    .notEmpty()
+    .withMessage("فیلد ایمیل خالی است")
+    .isEmail()
+    .withMessage("فرمت ایمیل نادرست است"),
+  header("authorization").notEmpty().withMessage("لطفا ReCaptcha را کامل کنید"),
+];
 
+module.exports = {
+  registerSchema,
+  loginSchema,
+};
 
 // const registerSchema = [
 //     body("fullName")
