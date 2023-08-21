@@ -1,8 +1,9 @@
 import Vector from "@/components/accountOperation/Vector";
 import React from "react";
-import AuthInput from "@/components/Input/AuthInput";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import TextInput from "@/components/elements/Input/TextInput";
+import { useQueryClient } from "react-query";
 
 export default function login() {
   return (
@@ -18,16 +19,18 @@ export default function login() {
           وارد حساب کاربری خود شوید
         </p>
         <div className="grid gap-10 w-3/5 my-12">
-          <AuthInput width={"100%"} textLabelInput={"ایمیل"} />
+          {/* @ts-ignore */}
+          <TextInput width={"100%"} textLabelInput={"ایمیل"} />
 
-          <AuthInput width={"100%"} textLabelInput={"گذرواژه"} />
+          {/* @ts-ignore */}
+          <TextInput width={"100%"} textLabelInput={"گذرواژه"} />
         </div>
         <div>
           <button className=" px-10 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
             ورود
           </button>
         </div>
-        <div className="flex items-center center flex-col justify-evenly absolute bottom-0 right-0 w-full h-1/6 bg-gray">
+        <div className="flex items-center center flex-col justify-evenly absolute bottom-0 right-0 w-full h-[130px] bg-gray">
           <span className=" text-dropdown opacity-50 text-base">اکانت ندارید؟</span>
           <Link href={"register"} className=" px-10 py-2 rounded-lg text-white bg-button text-[16px] border border-dotin hover:bg-buttonHover duration-300">
             ثبت نام
