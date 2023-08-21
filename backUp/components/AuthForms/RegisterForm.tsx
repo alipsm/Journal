@@ -1,6 +1,6 @@
 //@ts-ignore
 import ReCAPTCHA from "react-google-recaptcha";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { useMutation, useQueryClient } from "react-query";
 
@@ -12,25 +12,21 @@ import { toast } from "react-toastify";
 import Router from "next/router";
 
 export default function RegisterForm() {
-  
   const queryClient = useQueryClient();
   const capRef = useRef(null);
-  
+
   const { getValidation } = useFormValidation();
   const { register } = useUserRegistration();
-  
-  const {
-    mutate: registerUserMutate,
-    isLoading,
-  } = useMutation({
+
+  const { mutate: registerUserMutate, isLoading } = useMutation({
     mutationFn: async (form: React.FormEvent) => {
       // @ts-ignore
       const token = capRef.current?.getValue();
-      return await register(form, token)
+      return await register(form, token);
     },
-    onSuccess: async(result, variables, context)=> {
-      await queryClient.setQueryData('userData', result);
-      Router.replace("/dashboard")
+    onSuccess: async (result, variables, context) => {
+      await queryClient.setQueryData("userData", result);
+      Router.replace("/dashboard");
     },
     onError(error: string, variables, context) {
       toast.error(error);
