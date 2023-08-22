@@ -1,15 +1,22 @@
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { MdOutlineClose } from "react-icons/md";
-import { TbBrandGithub } from "react-icons/tb";
-import { SlSocialLinkedin } from "react-icons/sl";
 import Image from "next/image";
 import { dotin_nav_logo } from "@/public";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const ref = useRef<string | any>("");
+  const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
+
+  // Check the availability of the token
+  const [isToken, setIsToken] = useState(false)
+  useEffect(() => {
+    setIsToken(localStorage.getItem("token")?true:false);
+  }, [])
+  
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
@@ -34,16 +41,21 @@ const Navbar = () => {
       setShowMenu(false);
     }
   }
+
+  // hidden nav bar in dashboard route
+  const hiddenRoutes = ["/dashboard"];
+  if (hiddenRoutes.includes(router.pathname)) return null;
+
   return (
     <div className="w-full shadow-navbarShadow h-20  sticky top-0 z-50 bg-white px-4">
       <div className="max-w-container h-full mx-auto py-1 font-titleFont flex items-center justify-between">
-        <Link href="/accountOperation/login">
+        <Link href={isToken ? "/dashboard" : "/accountOperation/login"}>
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             className="px-4 py-2 rounded-md text-dotin text-[14px] border border-dotin hover:bg-hoverColor duration-300">
-            ورود/ ثبت نام
+            {isToken?"داشبورد":"ورود/ ثبت نام"}
           </motion.button>
         </Link>
 
