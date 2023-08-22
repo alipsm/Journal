@@ -44,7 +44,7 @@ const Navbar = () => {
 
   // hidden nav bar in dashboard route
   const hiddenRoutes = ["/dashboard"];
-  if (hiddenRoutes.includes(router.pathname)) return null;
+  if (hiddenRoutes.concat(router.pathname)) return null;
 
   return (
     <div className="w-full shadow-navbarShadow h-20  sticky top-0 z-50 bg-white px-4">
